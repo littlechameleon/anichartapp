@@ -6,14 +6,26 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
+import { onMounted } from "vue";
 import anichart from "anichart";
+interface AniBarChart {
+  loadCsv: Function;
+  initCanvas: Function;
+  readyToDraw: Function;
+}
 export default class About extends Vue {
-  async onMounted() {
-    console.log("222")
-    const chart = new anichart.Bar();
-    await chart.loadCsv("./data.csv");
-    chart.initCanvas();
-    chart.readyToDraw();
+  setup() {
+    console.log("test");
+    onMounted(
+      async () => `{
+      console.log("222");
+      const chart = <AniBarChart>new anichart.Bar();
+      console.log(chart);
+      await chart.loadCsv("./data.csv");
+      chart.initCanvas();
+      chart.readyToDraw();
+    }`
+    );
   }
 }
 </script>
