@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
 import { onMounted } from "vue";
 import anichart from "anichart";
 interface AniBarChart {
@@ -13,19 +12,16 @@ interface AniBarChart {
   initCanvas: Function;
   readyToDraw: Function;
 }
-export default class About extends Vue {
+export default {
   setup() {
-    console.log("test");
-    onMounted(
-      async () => `{
+    onMounted( async () => {
       console.log("222");
-      const chart = <AniBarChart>new anichart.Bar();
+      const chart = new anichart.Bar();
       console.log(chart);
-      await chart.loadCsv("./data.csv");
-      chart.initCanvas();
-      chart.readyToDraw();
-    }`
-    );
+      // await (<AniBarChart>chart).loadCsv("./data.csv");
+      // chart.initCanvas();
+      // chart.readyToDraw();
+    });
   }
 }
 </script>
