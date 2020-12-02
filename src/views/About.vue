@@ -15,14 +15,13 @@ interface AniBarChart {
 export default {
   setup() {
     onMounted( async () => {
-      console.log("222");
       const chart = new anichart.Bar();
       console.log(chart);
       // await (<AniBarChart>chart).loadCsv("./data.csv");
       // chart.initCanvas();
       // chart.readyToDraw();
     });
-    
+
   }
 }
 </script>
