@@ -1,25 +1,21 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { onMounted } from "vue";
-import anichart from "anichart";
-interface AniBarChart {
-  loadCsv: Function;
-  initCanvas: Function;
-  readyToDraw: Function;
-}
+import * as anichart from "anichart";
 export default {
   setup() {
     onMounted( async () => {
       const chart = new anichart.Bar();
+      await (chart as any).loadCsv("../../data/test-meta.csv");
+      (chart as any).initCanvas();
+      (chart as any).readyToDraw();
       console.log(chart);
-      // await (<AniBarChart>chart).loadCsv("./data.csv");
-      // chart.initCanvas();
-      // chart.readyToDraw();
+
+      (chart as any).play()
     });
 
   }
