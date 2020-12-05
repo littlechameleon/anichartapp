@@ -10,12 +10,14 @@ export default {
   setup() {
     onMounted( async () => {
       const chart = new anichart.Bar();
-      await (chart as any).loadCsv("../../data/test-meta.csv");
+      console.log(chart);
+      await (chart as any).loadCsv("../../data/test.csv");
       (chart as any).initCanvas();
       (chart as any).readyToDraw();
       console.log(chart);
+      window['chart'] = chart
 
-      (chart as any).play()
+      // (chart as any).play()
     });
 
   }
