@@ -16,7 +16,6 @@ export default {
       (chart as any).readyToDraw();
       console.log(chart);
       window['chart'] = chart
-
       // (chart as any).play()
     });
 
